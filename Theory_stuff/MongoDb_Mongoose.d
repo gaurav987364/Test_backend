@@ -110,6 +110,7 @@ string
 
 
 ## db.collectionName.inertMany(data,options) Now lets about these optiosn what they are
+// ham _id bhi khud ki de skte hai while inserting documents, but smanjho fir same id ka or data add kiya or uske baad bhi sahi data hai to error ane se vo sab add insert nhi hoga to hame {ordered:false} krna hota hai kyuki data inserting in mongodb synchronously hoti hai ok;
 
 
 
