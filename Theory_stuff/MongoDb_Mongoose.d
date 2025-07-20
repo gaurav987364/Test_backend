@@ -15,9 +15,19 @@ CRUD in MongoDb:-
 #read opr.
 
 db.collectionName.find({})   //find all objects;
+db.collectionName.findOne({})   //find find only one;
 db.collectionName.find({}).limit(1)   //find one;
 db.collectionName.find({}).size()   //find length of collection;
 
+some more on read opr.
+
+//count the number of documents in a collection
+db.eCart.countDocuments()
+
+
+// distinct hame simply field name dena hai vo bhi sirf string me to uska result lakar dedega.
+db.eCart.distinct("productId")
+[ 'PROD-001', 'PROD-002' ]
 
 #Create opr.
 
@@ -30,7 +40,47 @@ db.collectionName.insertMany([
 db.collectionName.insertOne({}) // insert only one document.
 
 
+#delete opr.
 
+db.collectionName.deleteMany([])
+db.collectionName.deleteOne({})
+
+
+#Update opr.
+
+ham kisi bhi document me kisi bhi existing chij ko update kar skte hai or nahi hai to create bhi kar skte hai, but hame $set ka use krna pdta hai uske bina error ayga;
+
+db.eCart.updateOne({productId:"PROD-001"},{name:"Gaming Laptop Pro X01"})   (without $set so error)
+MongoInvalidArgumentError: Update document requires atomic operators
+
+july_start_learning_2025_again> db.eCart.updateOne({productId:"PROD-001"},{$set:{name:"Gaming Laptop Pro X001"}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+
+
+Q: searching nested documents?
+ans:-  for eg. consider this document structure
+ shipping: {
+      weight: 0.35,
+      dimensions: { length: 15, width: 10, height: 8, unit: 'cm' },
+      freeShipping: false,
+      expeditedAvailable: true,
+      restrictions: [ 'lithium_battery', 'fragile' ]
+    },
+
+query is :-  db.eCart.find({"shipping.restrictions":"fragile"})
+
+Q: Also we can update or set this restrictions array like this?
+ans:-  db.eCart.updateOne({field to find jis document me update krna h}, {$set:{restrictions:"new field"}})   // so mongo db itna smjhdar hai khud se usko pata h restrictions ek array hai jisme update krna hai chijo ko;
+
+Q" Differnce B/w Find & FindOne in MongoDB?
+ans:- 
 
 
 
