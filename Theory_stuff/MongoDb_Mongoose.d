@@ -30,6 +30,8 @@ db.eCart.distinct("productId")
 [ 'PROD-001', 'PROD-002' ]
 
 #Create opr.
+db.collectionName.inertOne(data,options)
+db.collectionName.inertMany(data,options)
 
 db.collectionName.insertMany([
     {},
@@ -97,6 +99,17 @@ db.students.find({}, {name:1, _id:0});
 
 
 
+//data types in MongoDB;🗒️
+ we can check like this 
+
+july_start_learning_2025_again> db.eCart.findOne().name
+Gaming Laptop Pro X001
+
+july_start_learning_2025_again> typeof db.eCart.findOne().name
+string
+
+
+## db.collectionName.inertMany(data,options) Now lets about these optiosn what they are
 
 
 
