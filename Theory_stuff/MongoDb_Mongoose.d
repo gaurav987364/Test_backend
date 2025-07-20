@@ -84,7 +84,15 @@ ans:- find() hame "cursor" (array of documents) return krta hai jabki findOne() 
 [ 'Gaming Laptop Pro X001', 'Organic Green Tea Collection' ]
 
 
+// Column querys;
+Q: suppose we have array of students now we only needs name from that array from database so how we do that?.
+ans:-  hame find method me hee second paramenter pass krte hai like that
 
+{} means all documents,
+{name:1} means return only names
+{_id:0} isko hame alag se mongodb me batana pdta hai ye special hai varna ye har baar return hogi he hogi,
+
+db.students.find({}, {name:1, _id:0});
 
 
 
