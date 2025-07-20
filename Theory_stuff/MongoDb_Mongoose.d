@@ -80,7 +80,9 @@ Q: Also we can update or set this restrictions array like this?
 ans:-  db.eCart.updateOne({field to find jis document me update krna h}, {$set:{restrictions:"new field"}})   // so mongo db itna smjhdar hai khud se usko pata h restrictions ek array hai jisme update krna hai chijo ko;
 
 Q" Differnce B/w Find & FindOne in MongoDB?
-ans:- 
+ans:- find() hame "cursor" (array of documents) return krta hai jabki findOne() simple ek document return krta hai. ab fyda ye hai ki ham cursor pr kuch bhi javascript ki tarah operaions laga skate hai like:-  db.eCart.find().map((item)=> item.name)
+[ 'Gaming Laptop Pro X001', 'Organic Green Tea Collection' ]
+
 
 
 
